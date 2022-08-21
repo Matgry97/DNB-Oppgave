@@ -1,0 +1,12 @@
+.app {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	row-gap: 1rem;
+	align-items: center;
+	width: fit-content;
+	padding: 2rem;
+	border-radius: 12px;
+	background-color: white;
+}
