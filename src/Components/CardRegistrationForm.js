@@ -18,11 +18,11 @@ const textInputValidator = (text) => {
 };
 
 const cardNumberValidator = (number) => {
-	return number.length === 16;
+	return number.trim().length === 16;
 };
 
 const CCVValidator = (number) => {
-	return number.length === 3;
+	return number.trim().length === 3;
 };
 
 const DateValidator = (date) => {
@@ -56,8 +56,9 @@ const CardRegistrationFrom = (props) => {
 
 		const JSONData = {
 			cardHolderName: enteredName,
-			enteredCardNumber: enteredCardNumber,
-			enteredCCV: enteredCCV,
+			CardNumber: Number(enteredCardNumber),
+			CCV: Number(enteredCCV),
+			Date: enteredDate,
 		};
 
 		console.log(JSONData);
