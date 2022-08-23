@@ -55,6 +55,7 @@
 
 .error-text {
 	color: #b40e0e;
+	max-width: 16vw;
 }
 
 .wrapper-div {
