@@ -2,6 +2,7 @@
 
 export const maxLengthCCV = 3;
 export const maxLengthCreditCardNumber = 16;
+export const minimumLengthName = 5;
 
 export const findNextSmalletsInt = (arr) => {
 	// let smallest = arr[0];

@@ -3,7 +3,7 @@ import useInput from '../Hooks/use-input';
 import Button from '../UI/Button';
 import Title from '../UI/Title';
 
-import { findNextSmalletsInt, maxLengthCCV, maxLengthCreditCardNumber } from '../Helpers/Helpers';
+import { findNextSmalletsInt, maxLengthCCV, maxLengthCreditCardNumber, minimumLengthName } from '../Helpers/Helpers';
 
 import styles from './CardRegistrationForm.module.css';
 
@@ -17,15 +17,15 @@ const errorText = styles['error-text'];
 
 const textInputValidator = (text) => {
 	const regExp = new RegExp(/\d/);
-	return text.trim().length > 5 && !regExp.test(text);
+	return text.trim().length > minimumLengthName && !regExp.test(text);
 };
 
 const cardNumberValidator = (number) => {
-	return number.trim().length === 16 && !isNaN(number);
+	return number.trim().length === maxLengthCreditCardNumber && !isNaN(number);
 };
 
 const CCVValidator = (number) => {
-	return number.trim().length === 3 && !isNaN(number);
+	return number.trim().length === maxLengthCCV && !isNaN(number);
 };
 
 const DateValidator = (date) => {
@@ -81,7 +81,7 @@ const CardRegistrationFrom = (props) => {
 			<div className={nameInputClasses}>
 				<label htmlFor="name">Cardholder Name</label>
 				<input type="text" id="name" onChange={nameChangeHandler} onBlur={nameBlurHandler} value={enteredName} />
-				{nameHasError && <p className={errorText}>Name must be atleast 5 charachters and only contain letters</p>}
+				{nameHasError && <p className={errorText}>{`Name must be atleast ${minimumLengthName} charachters and only contain letters`}</p>}
 			</div>
 			<div className={styles['wrapper-div']}>
 				<div className={cardNumberClasses}>
