@@ -25,7 +25,7 @@ const cardNumberValidator = (number) => {
 };
 
 const CCVValidator = (number) => {
-	return number.trim().length === 3;
+	return number.trim().length === 3 && !isNaN(number);
 };
 
 const DateValidator = (date) => {
