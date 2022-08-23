@@ -75,24 +75,28 @@ const CardRegistrationFrom = (props) => {
 	const CCVClasses = CCVHasError ? formControlStyles : formControlStyles;
 	const DateClasses = DateHasError ? formControlInvalidStyles : formControlStyles;
 
+	const nameErrorMessage = `Name must be atleast ${minimumLengthName} charachters and only contain letters`;
+	const creditCardErrorMessage = `Credit card number must be ${maxLengthCreditCardNumber} charachters and only contain numbers`;
+	const CCVErrorMessage = `CCV must be ${maxLengthCCV} charachters and only contain numbers`;
+
 	return (
 		<form onSubmit={formSubmitHandler}>
 			<Title>Card Registration</Title>
 			<div className={nameInputClasses}>
 				<label htmlFor="name">Cardholder Name</label>
 				<input type="text" id="name" onChange={nameChangeHandler} onBlur={nameBlurHandler} value={enteredName} />
-				{nameHasError && <p className={errorText}>{`Name must be atleast ${minimumLengthName} charachters and only contain letters`}</p>}
+				{nameHasError && <p className={errorText}>{nameErrorMessage}</p>}
 			</div>
 			<div className={styles['wrapper-div']}>
 				<div className={cardNumberClasses}>
 					<label htmlFor="cardnumber">Card Number</label>
 					<input type="number" id="cardnumber" maxLength={maxLengthCreditCardNumber} onChange={CardNumberChangeHandler} onBlur={CardNumberBlurHandler} value={enteredCardNumber} />
-					{cardHasError && <p className={errorText}>{`Credit card number must be ${maxLengthCreditCardNumber} charachters and only contain numbers`}</p>}
+					{cardHasError && <p className={errorText}>{creditCardErrorMessage}</p>}
 				</div>
 				<div className={CCVClasses}>
 					<label htmlFor="ccv">CCV</label>
 					<input type="number" id="ccv" maxLength={maxLengthCCV} onChange={CCVChangeHandler} onBlur={CCVBlurHandler} value={enteredCCV} />
-					{CCVHasError && <p className={errorText}>{`CCV must be ${maxLengthCCV} charachters and only contain numbers`}</p>}
+					{CCVHasError && <p className={errorText}>{CCVErrorMessage}</p>}
 				</div>
 			</div>
 			<div className={DateClasses}>
