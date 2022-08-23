@@ -3,7 +3,7 @@ import useInput from '../Hooks/use-input';
 import Button from '../UI/Button';
 import Title from '../UI/Title';
 
-import { findNextSmalletsInt, maxLengthCCV, maxLengthCreditCardNumber, minimumLengthName } from '../Helpers/Helpers';
+import { maxLengthCCV, maxLengthCreditCardNumber, minimumLengthName } from '../Helpers/Helpers';
 
 import styles from './CardRegistrationForm.module.css';
 
